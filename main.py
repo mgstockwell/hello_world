@@ -24,7 +24,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def hello(msg):
+def hello():
     """Return a friendly HTTP greeting."""
     msg = {
         "timestamp": str(datetime.datetime.now()),
