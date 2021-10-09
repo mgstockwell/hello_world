@@ -22,17 +22,15 @@ import datetime
 # called `app` in `main.py`.
 app = Flask(__name__)
 
-msg = {
-    "timestamp": str(datetime.datetime.now()),
-    "msg": 'Hello World!'
-}
-
 
 @app.route('/')
 def hello(msg):
     """Return a friendly HTTP greeting."""
+    msg = {
+        "timestamp": str(datetime.datetime.now()),
+        "msg": 'Hello World!'
+    }
     return json.dumps(msg)
-
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
