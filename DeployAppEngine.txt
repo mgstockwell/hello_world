@@ -1,0 +1,356 @@
+Installing, this may take a few minutes...
+Please create a default UNIX user account. The username does not need to match your Windows username.
+For more information visit: https://aka.ms/wslusers
+Enter new UNIX username: admin
+adduser: The group `admin' already exists.
+Enter new UNIX username: administrator
+New password:
+Retype new password:
+passwd: password updated successfully
+Installation successful!
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+
+Welcome to Ubuntu 20.04 LTS (GNU/Linux 5.10.16.3-microsoft-standard-WSL2 x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Fri Oct  8 01:30:02 EDT 2021
+
+  System load:  0.08               Processes:             8
+  Usage of /:   0.4% of 250.98GB   Users logged in:       0
+  Memory usage: 1%                 IPv4 address for eth0: 172.31.134.148
+  Swap usage:   0%
+
+0 updates can be installed immediately.
+0 of these updates are security updates.
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+
+
+This message is shown once once a day. To disable it please create the
+/home/administrator/.hushlogin file.
+administrator@LAPTOP-0JJRN5B7:~$ dir
+
+administrator@LAPTOP-0JJRN5B7:~$ pwd
+/home/administrator
+
+bin   dev  home  lib    lib64   lost+found  mnt  proc  run   snap  sys  usr
+boot  etc  init  lib32  libx32  media       opt  root  sbin  srv   tmp  var
+administrator@LAPTOP-0JJRN5B7:/$ sudo apt update && sudo apt upgrade
+[sudo] password for administrator:
+Get:1 http://security.ubuntu.com/ubuntu focal-security InRelease [114 kB]
+Get:2 http://archive.ubuntu.com/ubuntu focal InRelease [265 kB]
+......
+done.
+Processing triggers for initramfs-tools (0.136ubuntu6.6) ...
+
+
+administrator@LAPTOP-0JJRN5B7:/$ echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main
+administrator@LAPTOP-0JJRN5B7:/$ sudo apt-get install apt-transport-https ca-certificates gnupg
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+ca-certificates is already the newest version (20210119~20.04.2).
+ca-certificates set to manually installed.
+gnupg is already the newest version (2.2.19-3ubuntu2.1).
+gnupg set to manually installed.
+The following NEW packages will be installed:
+  apt-transport-https
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 4680 B of archives.
+After this operation, 162 kB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 apt-transport-https all 2.0.6 [4680 B]
+Fetched 4680 B in 0s (16.4 kB/s)
+Selecting previously unselected package apt-transport-https.
+(Reading database ... 32268 files and directories currently installed.)
+Preparing to unpack .../apt-transport-https_2.0.6_all.deb ...
+Unpacking apt-transport-https (2.0.6) ...
+Setting up apt-transport-https (2.0.6) ...
+administrator@LAPTOP-0JJRN5B7:/$ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  2537  100  2537    0     0  13352      0 --:--:-- --:--:-- --:--:-- 13352
+OK
+
+administrator@LAPTOP-0JJRN5B7:/$ sudo apt-get update && sudo apt-get install google-cloud-sdk
+Hit:1 http://security.ubuntu.com/ubuntu focal-security InRelease
+Get:2 https://packages.cloud.google.com/apt cloud-sdk InRelease [6739 B]
+Hit:3 http://archive.ubuntu.com/ubuntu focal InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu focal-updates InRelease
+Get:5 https://packages.cloud.google.com/apt cloud-sdk/main amd64 Packages [191 kB]
+Hit:6 http://archive.ubuntu.com/ubuntu focal-backports InRelease
+Fetched 198 kB in 1s (196 kB/s)
+Reading package lists... Done
+Reading package lists... Done
+Building dependency tree
+Reading state information... Done
+The following additional packages will be installed:
+  python3-crcmod
+Suggested packages:
+  google-cloud-sdk-app-engine-java google-cloud-sdk-app-engine-python google-cloud-sdk-pubsub-emulator
+  google-cloud-sdk-bigtable-emulator google-cloud-sdk-datastore-emulator kubectl
+The following NEW packages will be installed:
+  google-cloud-sdk python3-crcmod
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 75.8 MB of archives.
+After this operation, 479 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Y
+Get:1 https://packages.cloud.google.com/apt cloud-sdk/main amd64 google-cloud-sdk all 360.0.0-0 [75.8 MB]
+Get:2 http://archive.ubuntu.com/ubuntu focal/universe amd64 python3-crcmod amd64 1.7+dfsg-2build2 [18.8 kB]
+Fetched 75.8 MB in 28s (2664 kB/s)
+Selecting previously unselected package python3-crcmod.
+(Reading database ... 32272 files and directories currently installed.)
+Preparing to unpack .../python3-crcmod_1.7+dfsg-2build2_amd64.deb ...
+Unpacking python3-crcmod (1.7+dfsg-2build2) ...
+Selecting previously unselected package google-cloud-sdk.
+Preparing to unpack .../google-cloud-sdk_360.0.0-0_all.deb ...
+Unpacking google-cloud-sdk (360.0.0-0) ...
+Setting up python3-crcmod (1.7+dfsg-2build2) ...
+Setting up google-cloud-sdk (360.0.0-0) ...
+Processing triggers for man-db (2.9.1-1) ...
+
+administrator@LAPTOP-0JJRN5B7:/$ gcloud init
+Welcome! This command will take you through the configuration of gcloud.
+
+Your current configuration has been set to: [default]
+
+You can skip diagnostics next time by using the following flag:
+  gcloud init --skip-diagnostics
+
+Network diagnostic detects and fixes local network connection issues.
+Checking network connection...done.
+Reachability Check passed.
+Network diagnostic passed (1/1 checks passed).
+
+You must log in to continue. Would you like to log in (Y/n)?  Y
+
+Go to the following link in your browser:
+
+    https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=32555940559.apps.googleusercontent.com&redirect_uri=urn%3Aietf%3Awg%3Aoauth%3A2.0%3Aoob&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&state=MzMcAb0TKlcRrbgvNX2zGCFzu6tNT3&prompt=consent&access_type=offline&code_challenge=Ol4qzavg6yMuZp47SrJXWCSYJDdgw4f4BqZQz2rmvCI&code_challenge_method=S256
+
+Enter verification code: 4/1AX4XfWgqyW02o8tPWv3LdmIh1nukGXVjEkDiu_07soE7E3r-W1_OB0y0D7Q
+You are logged in as: [mark.g.stockwell@gmail.com].
+
+Pick cloud project to use:
+ [1] msd8654-434
+ [2] Create a new project
+Please enter numeric choice or text value (must exactly match list
+item):  1
+
+Your current project has been set to: [msd8654-434].
+
+Do you want to configure a default Compute Region and Zone? (Y/n)?  Y
+
+Which Google Compute Engine zone would you like to use as project
+default?
+If you do not specify a zone via a command line flag while working
+with Compute Engine resources, the default is assumed.
+ [1] us-east1-b
+ [2] us-east1-c
+ [3] us-east1-d
+ [4] us-east4-c
+ [5] us-east4-b
+ [6] us-east4-a
+ .....
+ [50] asia-northeast3-a
+Please enter numeric choice or text value (must exactly match list
+item):  4
+
+Your project default Compute Engine zone has been set to [us-east4-c].
+You can change it by running [gcloud config set compute/zone NAME].
+
+Your project default Compute Engine region has been set to [us-east4].
+You can change it by running [gcloud config set compute/region NAME].
+
+Created a default .boto configuration file at [/home/administrator/.boto]. See this file and
+[https://cloud.google.com/storage/docs/gsutil/commands/config] for more
+information about configuring Google Cloud Storage.
+Your Google Cloud SDK is configured and ready to use!
+
+* Commands that require authentication will use mark.g.stockwell@gmail.com by default
+* Commands will reference project `msd8654-434` by default
+* Compute Engine commands will use region `us-east4` by default
+* Compute Engine commands will use zone `us-east4-c` by default
+
+Run `gcloud help config` to learn how to change individual settings
+
+This gcloud configuration is called [default]. You can create additional configurations if you work with multiple accounts and/or projects.
+
+administrator@LAPTOP-0JJRN5B7:/$ gcloud app create
+ERROR: (gcloud.app.create) The project [msd8654-434] already contains an App Engine application in region [us-east4].  You can deploy your application using `gcloud app deploy`.
+
+
+administrator@LAPTOP-0JJRN5B7:~/hello_world$ git clone \
+>     https://github.com/GoogleCloudPlatform/python-docs-samples
+Cloning into 'python-docs-samples'...
+remote: Enumerating objects: 57618, done.
+remote: Counting objects: 100% (257/257), done.
+remote: Compressing objects: 100% (205/205), done.
+remote: Total 57618 (delta 74), reused 119 (delta 37), pack-reused 57361
+Receiving objects: 100% (57618/57618), 82.28 MiB | 2.65 MiB/s, done.
+Resolving deltas: 100% (32660/32660), done.
+Updating files: 100% (2206/2206), done.
+
+
+administrator@LAPTOP-0JJRN5B7:~/hello_world/python-docs-samples$ sudo apt install python3-virtualenv
+Reading package lists... 
+Done
+
+administrator@LAPTOP-0JJRN5B7:~/hello_world/python-docs-samples$ virtualenv --python python3     ~/envs/hello_world
+created virtual environment CPython3.8.10.final.0-64 in 1420ms
+  creator CPython3Posix(dest=/home/administrator/envs/hello_world, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, pkg_resources=latest, via=copy, app_data_dir=/home/administrator/.local/share/virtualenv/seed-app-data/v1.0.1.debian.1)
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
+
+administrator@LAPTOP-0JJRN5B7:~/hello_world/python-docs-samples$ source \
+>     ~/envs/hello_world/bin/activate
+
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$ pip install -r requirements.txt
+Collecting Flask==2.0.1
+  Downloading Flask-2.0.1-py3-none-any.whl (94 kB)
+     |████████████████████████████████| 94 kB 910 kB/s
+Collecting Werkzeug>=2.0
+  Downloading Werkzeug-2.0.2-py3-none-any.whl (288 kB)
+     |████████████████████████████████| 288 kB 330 kB/s
+Collecting Jinja2>=3.0
+  Downloading Jinja2-3.0.2-py3-none-any.whl (133 kB)
+     |████████████████████████████████| 133 kB 1.1 MB/s
+Collecting click>=7.1.2
+  Downloading click-8.0.2-py3-none-any.whl (97 kB)
+     |████████████████████████████████| 97 kB 1.2 MB/s
+Collecting itsdangerous>=2.0
+  Downloading itsdangerous-2.0.1-py3-none-any.whl (18 kB)
+Collecting MarkupSafe>=2.0
+  Downloading MarkupSafe-2.0.1-cp38-cp38-manylinux2010_x86_64.whl (30 kB)
+Installing collected packages: Werkzeug, MarkupSafe, Jinja2, click, itsdangerous, Flask
+Successfully installed Flask-2.0.1 Jinja2-3.0.2 MarkupSafe-2.0.1 Werkzeug-2.0.2 click-8.0.2 itsdangerous-2.0.1
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$ python main.py
+ * Serving Flask app 'main' (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://127.0.0.1:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 772-968-615
+127.0.0.1 - - [08/Oct/2021 19:37:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [08/Oct/2021 19:37:34] "GET /favicon.ico HTTP/1.1" 404 -
+^C
+
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$ gcloud app deploy
+Services to deploy:
+
+descriptor:                  [/home/administrator/python-docs-samples/appengine/standard_python3/hello_world/app.yaml]
+source:                      [/home/administrator/python-docs-samples/appengine/standard_python3/hello_world]
+target project:              [msd8654-434]
+target service:              [default]
+target version:              [20211008t194426]
+target url:                  [https://msd8654-434.uk.r.appspot.com]
+target service account:      [App Engine default service account]
+
+
+Do you want to continue (Y/n)?  Y
+
+Beginning deployment of service [default]...
+Created .gcloudignore file. See `gcloud topic gcloudignore` for details.
+╔════════════════════════════════════════════════════════════╗
+╠═ Uploading 6 files to Google Cloud Storage                ═╣
+╚════════════════════════════════════════════════════════════╝
+File upload done.
+ERROR: (gcloud.app.deploy) NOT_FOUND: Unable to retrieve P4SA: [service-172863570662@gcp-gae-service.iam.gserviceaccount.com] from GAIA. Could be GAIA propagation delay or request from deleted apps.
+  >>enabled Build API on GCP
+
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$ gcloud app deploy
+Services to deploy:
+
+descriptor:                  [/home/administrator/python-docs-samples/appengine/standard_python3/hello_world/app.yaml]
+source:                      [/home/administrator/python-docs-samples/appengine/standard_python3/hello_world]
+target project:              [msd8654-434]
+target service:              [default]
+target version:              [20211008t194806]
+target url:                  [https://msd8654-434.uk.r.appspot.com]
+target service account:      [App Engine default service account]
+
+
+Do you want to continue (Y/n)?  Y
+
+Beginning deployment of service [default]...
+╔════════════════════════════════════════════════════════════╗
+╠═ Uploading 0 files to Google Cloud Storage                ═╣
+╚════════════════════════════════════════════════════════════╝
+File upload done.
+Updating service [default]...done.
+Setting traffic split for service [default]...done.
+Deployed service [default] to [https://msd8654-434.uk.r.appspot.com]
+
+You can stream logs from the command line by running:
+  $ gcloud app logs tail -s default
+
+To view your application in the web browser run:
+  $ gcloud app browse
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$ gcloud app browse
+Did not detect your browser. Go to this link to view your app:
+https://msd8654-434.uk.r.appspot.com
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$ gcloud app logs tail -s default
+Waiting for new log entries...
+2021-10-08 23:53:59 default[20211008t194806]  "GET / HTTP/1.1" 200
+2021-10-08 23:54:00 default[20211008t194806]  [2021-10-08 23:54:00 +0000] [10] [INFO] Starting gunicorn 20.0.4
+2021-10-08 23:54:00 default[20211008t194806]  [2021-10-08 23:54:00 +0000] [10] [INFO] Listening at: http://0.0.0.0:8081 (10)
+2021-10-08 23:54:00 default[20211008t194806]  [2021-10-08 23:54:00 +0000] [10] [INFO] Using worker: threads
+2021-10-08 23:54:00 default[20211008t194806]  [2021-10-08 23:54:00 +0000] [20] [INFO] Booting worker with pid: 20
+2021-10-08 23:54:00 default[20211008t194806]  [2021-10-08 23:54:00 +0000] [23] [INFO] Booting worker with pid: 23
+^C
+
+Command killed by keyboard interrupt
+
+
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$ ls
+app.yaml  main.py  main_test.py  requirements-test.txt  requirements.txt
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$ cat main.py
+# Copyright 2018 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+# [START gae_python38_app]
+# [START gae_python3_app]
+from flask import Flask
+
+
+# If `entrypoint` is not defined in app.yaml, App Engine will look for an app
+# called `app` in `main.py`.
+app = Flask(__name__)
+
+
+@app.route('/')
+def hello():
+    """Return a friendly HTTP greeting."""
+    return 'Hello World!'
+
+
+if __name__ == '__main__':
+    # This is used when running locally only. When deploying to Google App
+    # Engine, a webserver process such as Gunicorn will serve the app. You
+    # can configure startup instructions by adding `entrypoint` to app.yaml.
+    app.run(host='127.0.0.1', port=8080, debug=True)
+# [END gae_python3_app]
+# [END gae_python38_app]
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$
+(hello_world) administrator@LAPTOP-0JJRN5B7:~/python-docs-samples/appengine/standard_python3/hello_world$
