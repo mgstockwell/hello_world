@@ -44,11 +44,6 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
 
-      - save_cache:
-          paths:
-            - ./venv
-          key: v1-dependencies-{{ checksum "requirements.txt" }}
-      
       - run:
           name: Run tests
           # This assumes pytest is installed via the install-package step above
