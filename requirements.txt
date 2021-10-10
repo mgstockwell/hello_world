@@ -1,1 +1,10 @@
 Flask==2.0.1
+pytest
+pylint
+jupyter
+pytest-cov
+pandas
+nbval
+click
+flask
+requests
